@@ -7,7 +7,7 @@ import { COLORS } from './utils/constants';
 import { useState } from 'react';
 import useTabNavigation from './hooks/useTabNavigation';
 import HomeScreen from './components/screens/Home';
-import CalculatorScreen from './components/screens/CalculatorScreen';
+import CalculatorScreen from './components/screens/Calculator';
 
 export default function App() {
 	const [tab, setTab] = useState('Inicio');
