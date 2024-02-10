@@ -1,19 +1,21 @@
 import { StyleSheet, Text, View } from 'react-native';
 import HomeIcon from './components/icons/Home';
 import CalculatorIcon from './components/icons/Calculator';
-import GlobeIcon from './components/icons/Globe';
+import DocIcon from './components/icons/Doc';
 import CameraIcon from './components/icons/Camera';
 import { COLORS } from './utils/constants';
 import { useState } from 'react';
 import useTabNavigation from './hooks/useTabNavigation';
 import HomeScreen from './components/screens/Home';
 import CalculatorScreen from './components/screens/Calculator';
+import TranslatorScreen from './components/screens/Translator';
 
 export default function App() {
 	const [tab, setTab] = useState('Inicio');
 	const SCREENS = {
 		inicio: <HomeScreen />,
 		calcular: <CalculatorScreen />,
+		traductor: <TranslatorScreen />,
 	};
 	const [screen, setScreen] = useState(SCREENS.inicio);
 	const isActive = (tabName) => tabName === tab;
@@ -31,7 +33,7 @@ export default function App() {
 		{
 			label: 'Traductor',
 			href: 'TranslatorScreen',
-			icon: <GlobeIcon isActive={isActive('Traductor')} />,
+			icon: <DocIcon isActive={isActive('Traductor')} />,
 		},
 		{
 			label: 'Blog',
