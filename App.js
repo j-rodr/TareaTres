@@ -9,6 +9,7 @@ import useTabNavigation from './hooks/useTabNavigation';
 import HomeScreen from './components/screens/Home';
 import CalculatorScreen from './components/screens/Calculator';
 import TranslatorScreen from './components/screens/Translator';
+import BlogScreen from './components/screens/Blog';
 
 export default function App() {
 	const [tab, setTab] = useState('Inicio');
@@ -16,6 +17,7 @@ export default function App() {
 		inicio: <HomeScreen />,
 		calcular: <CalculatorScreen />,
 		traductor: <TranslatorScreen />,
+		blog: <BlogScreen />,
 	};
 	const [screen, setScreen] = useState(SCREENS.inicio);
 	const isActive = (tabName) => tabName === tab;
