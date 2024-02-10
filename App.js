@@ -7,11 +7,13 @@ import { COLORS } from './utils/constants';
 import { useState } from 'react';
 import useTabNavigation from './hooks/useTabNavigation';
 import HomeScreen from './components/screens/Home';
+import CalculatorScreen from './components/screens/CalculatorScreen';
 
 export default function App() {
 	const [tab, setTab] = useState('Inicio');
 	const SCREENS = {
 		inicio: <HomeScreen />,
+		calcular: <CalculatorScreen />,
 	};
 	const [screen, setScreen] = useState(SCREENS.inicio);
 	const isActive = (tabName) => tabName === tab;
