@@ -6,9 +6,14 @@ import CameraIcon from './components/icons/Camera';
 import { COLORS } from './utils/constants';
 import { useState } from 'react';
 import useTabNavigation from './hooks/useTabNavigation';
+import HomeScreen from './components/screens/Home';
 
 export default function App() {
 	const [tab, setTab] = useState('Inicio');
+	const SCREENS = {
+		inicio: <HomeScreen />,
+	};
+	const [screen, setScreen] = useState(SCREENS.inicio);
 	const isActive = (tabName) => tabName === tab;
 	const LINKS = [
 		{
@@ -35,6 +40,7 @@ export default function App() {
 
 	const udapteState = (tab) => {
 		setTab(tab);
+		setScreen(SCREENS[tab.toLowerCase()]);
 	};
 
 	const { tabNavigation } = useTabNavigation(
@@ -43,7 +49,12 @@ export default function App() {
 		udapteState
 	);
 
-	return <View style={styles.container}>{tabNavigation}</View>;
+	return (
+		<View style={styles.container}>
+			{screen}
+			{tabNavigation}
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({
